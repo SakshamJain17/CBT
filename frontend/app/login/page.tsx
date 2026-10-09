@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LoginForm } from "@/components/login-form";
+import { GoogleSignInButton } from "@/components/google-sign-in-button";
 
-export const metadata: Metadata = { title: "Librarian sign in" };
+export const metadata: Metadata = { title: "Sign in" };
 
 export default function LoginPage() {
   return (
@@ -14,11 +15,13 @@ export default function LoginPage() {
       </section>
       <section className="login-panel">
         <Link className="back-link" href="/">← Return to public catalogue</Link>
-        <p className="eyebrow"><span>Staff only</span> Secure access</p>
-        <h2>Librarian sign in</h2>
-        <p>Use the staff account created for you by a CBT administrator.</p>
+        <p className="eyebrow"><span>Secure access</span> Members and staff</p>
+        <h2>Sign in to CBT</h2>
+        <p>Members see only their own loans. Staff are routed to the protected library workspace.</p>
+        <GoogleSignInButton />
+        <div className="login-divider"><span>Staff password access</span></div>
         <LoginForm />
-        <small>Accounts are managed centrally. Public registration is disabled.</small>
+        <small>Google sign-in does not grant administrative permission. Roles are assigned from CBT records.</small>
       </section>
     </main>
   );

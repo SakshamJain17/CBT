@@ -1,0 +1,9 @@
+"use server";
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
+import { requireStaff } from "@/lib/auth/require-staff";
+const titleSchema=z.object({title:z.string().trim().min(1).max(500),publicationYear:z.coerce.number().int().min(1000).max(2200).optional()});
+const memberSchema=z.object({membershipNumber:z.string().trim().min(1).max(100),fullName:z.string().trim().min(1).max(300),email:z.union([z.email(),z.literal("")]),membershipStart:z.iso.date(),membershipExpiry:z.iso.date(),membershipTypeId:z.uuid()});
+export async function addTitle(formData:FormData){const auth=await requireStaff(["admin"]);if(!auth.ok)throw new Error(auth.message);const parsed=titleSchema.parse({title:formData.get("title"),publicationYear:formData.get("publicationYear")||undefined});const{error}=await auth.supabase.from("bibliographic_records").insert({title:parsed.title,publication_year:parsed.publicationYear,status:"draft",created_by:auth.userId});if(error)throw error;revalidatePath("/admin");}
+export async function addMember(formData:FormData){const auth=await requireStaff(["admin"]);if(!auth.ok)throw new Error(auth.message);const parsed=memberSchema.parse(Object.fromEntries(formData));const{error}=await auth.supabase.from("members").insert({membership_number:parsed.membershipNumber,full_name:parsed.fullName,email:parsed.email||null,membership_start:parsed.membershipStart,membership_expiry:parsed.membershipExpiry,membership_type_id:parsed.membershipTypeId});if(error)throw error;revalidatePath("/admin");}
+export async function updateMemberStatus(formData:FormData){const auth=await requireStaff(["admin"]);if(!auth.ok)throw new Error(auth.message);const id=z.uuid().parse(formData.get("id"));const status=z.enum(["active","blocked","expired","inactive"]).parse(formData.get("status"));const{error}=await auth.supabase.from("members").update({status}).eq("id",id);if(error)throw error;revalidatePath("/admin");}

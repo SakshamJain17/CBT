@@ -31,7 +31,7 @@ export function LoginForm() {
       <div><label htmlFor="email">Staff email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
       <div><label htmlFor="password">Password</label><input id="password" name="password" type="password" autoComplete="current-password" required /></div>
       {message ? <p className="form-message" role="alert">{message}</p> : null}
-      <button type="submit" disabled={pending}>{pending ? "Signing in…" : "Enter librarian portal"}</button>
+      <button type="submit" disabled={pending}>{pending ? "Signing in…" : "Sign in with password"}</button>
     </form>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { SignOutButton } from "@/components/sign-out-button";
+import Link from "next/link";
 
 export const metadata: Metadata = { title: "Librarian workspace" };
 
@@ -26,7 +27,7 @@ export default async function LibrarianPage() {
         <SignOutButton />
       </aside>
       <section className="workspace-main" id="overview">
-        <div className="workspace-topline"><span>Pilot workspace</span><span>{roles.join(" · ").replaceAll("_", " ")}</span></div>
+        <div className="workspace-topline"><span>Pilot workspace</span><span>{roles.includes("admin") ? <Link href="/admin">Administration →</Link> : null} {roles.join(" · ").replaceAll("_", " ")}</span></div>
         <h1>Good morning,<br /><em>librarian.</em></h1>
         <div className="metric-grid">
           <article><span>01</span><strong>{titles ?? 0}</strong><p>Catalogue titles</p></article>
