@@ -1,0 +1,16 @@
+{
+  "name": "cbt-digital-library",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start",
+    "typecheck": "npm --prefix frontend run typecheck",
+    "lint": "npm --prefix frontend run lint",
+    "test": "npm --prefix frontend test",
+    "backend:start": "npm --prefix backend run start",
+    "backend:reset": "npm --prefix backend run reset",
+    "backend:status": "npm --prefix backend run status"
+  }
+}

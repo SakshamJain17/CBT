@@ -1,0 +1,15 @@
+{
+  "name": "cbt-library-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "supabase start",
+    "stop": "supabase stop",
+    "reset": "supabase db reset",
+    "status": "supabase status",
+    "test": "supabase test db"
+  },
+  "devDependencies": {
+    "supabase": "2.120.0"
+  }
+}
