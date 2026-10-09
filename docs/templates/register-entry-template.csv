@@ -1,0 +1,2 @@
+source_register,page_number,row_reference,accession_number,title,author,language,isbn,publisher,publication_year,edition,category,uncertainty_notes
+SAMPLE-REGISTER,EXAMPLE-PAGE,EXAMPLE-ROW,SAMPLE-ACCESSION,Sample title,Sample author,Sample language,,,,,Sample category,DELETE THIS SAMPLE ROW BEFORE USE

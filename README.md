@@ -2,6 +2,8 @@
 
 Full-stack pilot for Children’s Book Trust’s physical library catalogue. It separates a title from its physical copies and never treats a handwritten register entry as proof that a copy is currently available.
 
+**Live website:** [cbt-flame-rho.vercel.app](https://cbt-flame-rho.vercel.app)
+
 ## Repository structure
 
 ```text
@@ -38,6 +40,8 @@ Frontend routes:
 - `/librarian` — protected librarian overview with live database counts.
 
 The intended pilot is one physically checked section of 300–500 books. Do not enter all 60,000 register records as “available.”
+
+For staff onboarding, batch controls, manual transcription, OCR-assisted entry, verification rules, and CSV templates, see [the intern cataloguing runbook](docs/intern-cataloguing-runbook.md).
 
 ## How Supabase works here
 
