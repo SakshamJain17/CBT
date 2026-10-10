@@ -1,16 +1,18 @@
 import { CatalogueExplorer } from "@/components/catalogue-explorer";
+import { HomeMotion } from "@/components/motion/home-motion";
 
 const orbitLabels = ["English", "हिन्दी", "বাংলা", "मराठी", "தமிழ்"];
 
 export default function HomePage() {
   return (
     <main>
+      <HomeMotion />
       <section className="hero">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-orbit" aria-hidden="true">
-          <div className="orbit-ring orbit-ring-one" /><div className="orbit-ring orbit-ring-two" />
-          <div className="book-sun"><span>CBT</span></div>
-          {orbitLabels.map((label, index) => <span className={`orbit-label orbit-label-${index + 1}`} key={label}>{label}</span>)}
+          <div className="orbit-spin"><div className="orbit-ring orbit-ring-one" /><div className="orbit-ring orbit-ring-two" /></div>
+          <div className="sun-zoom"><div className="book-sun"><span>CBT</span></div></div>
+          <div className="orbit-spin">{orbitLabels.map((label, index) => <span className="orbit-arm" style={{ "--i": index } as React.CSSProperties} key={label}><span className={`orbit-label orbit-label-${index + 1}`}>{label}</span></span>)}</div>
         </div>
         <div className="hero-copy">
           <div className="pilot-status"><i aria-hidden="true" /> Verified pilot catalogue · New Delhi</div>
@@ -25,7 +27,7 @@ export default function HomePage() {
       <section className="statement" id="about">
         <p className="eyebrow"><span>02</span> A careful digital beginning</p>
         <div className="statement-grid">
-          <h2>Not just digitised.<br /><em>Physically verified.</em></h2>
+          <h2><span className="reveal-line">Not just digitised.</span><span className="reveal-line"><em>Physically verified.</em></span></h2>
           <div>
             <p>CBT’s collection lives in handwritten registers and on real shelves. This pilot begins with a small section, checked book by book.</p>
             <dl className="principles">
