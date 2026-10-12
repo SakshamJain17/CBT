@@ -1,31 +1,15 @@
 import { CatalogueExplorer } from "@/components/catalogue-explorer";
-
-const orbitLabels = ["English", "हिन्दी", "বাংলা", "मराठी", "தமிழ்"];
+import { PopUpBook } from "@/components/pop-up-book";
 
 export default function HomePage() {
   return (
     <main>
-      <section className="hero">
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-orbit" aria-hidden="true">
-          <div className="orbit-ring orbit-ring-one" /><div className="orbit-ring orbit-ring-two" />
-          <div className="book-sun"><span>CBT</span></div>
-          {orbitLabels.map((label, index) => <span className={`orbit-label orbit-label-${index + 1}`} key={label}>{label}</span>)}
-        </div>
-        <div className="hero-copy">
-          <div className="pilot-status"><i aria-hidden="true" /> Verified pilot catalogue · New Delhi</div>
-          <p className="eyebrow"><span>01</span> India’s stories, easier to find</p>
-          <h1>Find the story.<br /><em>Know it’s there.</em></h1>
-          <p className="hero-intro">Discover children’s books across languages and generations. Every availability shown here is tied to a physical copy that CBT librarians have actually verified.</p>
-          <a className="primary-link" href="#catalogue">Search the library <span aria-hidden="true">↓</span></a>
-        </div>
-        <div className="hero-index" aria-hidden="true"><span>EST.</span><strong>1957</strong><span>NEW DELHI</span></div>
-      </section>
+      <PopUpBook />
 
       <section className="statement" id="about">
-        <p className="eyebrow"><span>02</span> A careful digital beginning</p>
+        <p className="eyebrow"><span>02</span> The journey from register to reader</p>
         <div className="statement-grid">
-          <h2>Not just digitised.<br /><em>Physically verified.</em></h2>
+          <h2>Every title has<br /><em>a paper trail.</em></h2>
           <div>
             <p>CBT’s collection lives in handwritten registers and on real shelves. This pilot begins with a small section, checked book by book.</p>
             <dl className="principles">
@@ -45,9 +29,9 @@ export default function HomePage() {
       </section>
 
       <section className="manifesto">
-        <p className="eyebrow"><span>04</span> Built for trust</p>
-        <p className="manifesto-line">A register tells us a book <em>once existed.</em></p>
-        <p className="manifesto-line offset">A librarian tells us <em>where it is now.</em></p>
+        <p className="eyebrow"><span>04</span> The story continues</p>
+        <p className="manifesto-line">A register remembers <em>every arrival.</em></p>
+        <p className="manifesto-line offset">A librarian helps it find <em>its next reader.</em></p>
       </section>
     </main>
   );
