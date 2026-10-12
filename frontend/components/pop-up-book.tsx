@@ -67,6 +67,11 @@ export function PopUpBook() {
             <div className="mushroom mushroom-two" aria-hidden="true"><i /><b /></div>
             <div className="paper-bird bird-one" aria-hidden="true">⌁</div>
             <div className="paper-bird bird-two" aria-hidden="true">⌁</div>
+            <div className="flying-books" aria-hidden="true">
+              <div className="book-cutout book-cutout-one"><i /><span>Jungle<br />Tales</span></div>
+              <div className="book-cutout book-cutout-two"><i /><span>Moon<br />Stories</span></div>
+              <div className="book-cutout book-cutout-three"><i /><span>Little<br />Wonders</span></div>
+            </div>
 
             <article className="pop-panel story-panel">
               <span className="panel-number">A story is waiting</span>
